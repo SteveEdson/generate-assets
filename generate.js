@@ -1,5 +1,4 @@
-var chalk = require('chalk'),
-    sharp = require('sharp'),
+var sharp = require('sharp'),
     inquirer = require("inquirer"),
     ProgressBar = require('progress'),
     mkdirp = require('mkdirp'),
