@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 var sharp = require('sharp'),
     inquirer = require("inquirer"),
     ProgressBar = require('progress'),
