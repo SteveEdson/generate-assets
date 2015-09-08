@@ -46,7 +46,7 @@ function createAndroidFolders() {
 }
 
 function createIOSFolders() {
-    mkdirp.sync(process.env.PWD + "/iOS/Splash");
+    mkdirp.sync(process.env.PWD + "/iOS/Assets");
 
 }
 
@@ -134,20 +134,20 @@ function generateIOSSplashAssets() {
 
     console.log("Generating iPad splash assets");
 
-    resizeSplashImage(768, 1004, "iOS/Splash/Default~ipad.png");
-    resizeSplashImage(1536, 2008, "iOS/Splash/Default@2x~ipad.png");
-    resizeSplashImage(1024, 748, "iOS/Splash/Default-Landscape~ipad.png");
-    resizeSplashImage(2048, 1496, "iOS/Splash/Default-Landscape@2x~ipad.png");
-    resizeSplashImage(768, 1024, "iOS/Splash/Default-Portrait~ipad.png");
-    resizeSplashImage(1536, 2048, "iOS/Splash/Default-Portrait@2x~ipad.png");
-    resizeSplashImage(1024, 768, "iOS/Splash/Default-Landscape-768~ipad.png");
-    resizeSplashImage(2048, 1536, "iOS/Splash/Default-Landscape-768@2x~ipad.png");
+    resizeSplashImage(768, 1004, "iOS/Assets/Default~ipad.png");
+    resizeSplashImage(1536, 2008, "iOS/Assets/Default@2x~ipad.png");
+    resizeSplashImage(1024, 748, "iOS/Assets/Default-Landscape~ipad.png");
+    resizeSplashImage(2048, 1496, "iOS/Assets/Default-Landscape@2x~ipad.png");
+    resizeSplashImage(768, 1024, "iOS/Assets/Default-Portrait~ipad.png");
+    resizeSplashImage(1536, 2048, "iOS/Assets/Default-Portrait@2x~ipad.png");
+    resizeSplashImage(1024, 768, "iOS/Assets/Default-Landscape-768~ipad.png");
+    resizeSplashImage(2048, 1536, "iOS/Assets/Default-Landscape-768@2x~ipad.png");
 
     console.log("Generating iPhone splash assets");
 
-    resizeSplashImage(320, 480, "iOS/Splash/Default.png");
-    resizeSplashImage(640, 960, "iOS/Splash/Default@2x.png");
-    resizeSplashImage(640, 1136, "iOS/Splash/Default-568h@2x.png");
+    resizeSplashImage(320, 480, "iOS/Assets/Default.png");
+    resizeSplashImage(640, 960, "iOS/Assets/Default@2x.png");
+    resizeSplashImage(640, 1136, "iOS/Assets/Default-568h@2x.png");
 
 }
 
@@ -156,29 +156,29 @@ function generateIOSIconAssets() {
 
     console.log("Generating iPhone icon assets");
 
-    resizeIconImage(57, 57, "iOS/Splash/Icon.png");
-    resizeIconImage(114, 114, "iOS/Splash/Icon@2x.png");
-    resizeIconImage(120, 120, "iOS/Splash/Icon-120.png");
-    resizeIconImage(72, 72, "iOS/Splash/Icon-72.png");
-    resizeIconImage(144, 144, "iOS/Splash/Icon-72@2x.png");
-    resizeIconImage(76, 76, "iOS/Splash/Icon-76.png");
-    resizeIconImage(152, 152, "iOS/Splash/Icon-76@2x.png");
-    resizeIconImage(29, 29, "iOS/Splash/Icon-Small.png");
-    resizeIconImage(58, 58, "iOS/Splash/Icon-Small@2x.png");
-    resizeIconImage(80, 80, "iOS/Splash/Icon-40@2x.png");
-    resizeIconImage(50, 50, "iOS/Splash/Icon-Small-50.png");
-    resizeIconImage(100, 100, "iOS/Splash/Icon-Small-50@2x.png");
-    resizeIconImage(40, 40, "iOS/Splash/Icon-40.png");
-    resizeIconImage(80, 80, "iOS/Splash/Icon-40@2x.png");
+    resizeIconImage(57, 57, "iOS/Assets/Icon.png");
+    resizeIconImage(114, 114, "iOS/Assets/Icon@2x.png");
+    resizeIconImage(120, 120, "iOS/Assets/Icon-120.png");
+    resizeIconImage(72, 72, "iOS/Assets/Icon-72.png");
+    resizeIconImage(144, 144, "iOS/Assets/Icon-72@2x.png");
+    resizeIconImage(76, 76, "iOS/Assets/Icon-76.png");
+    resizeIconImage(152, 152, "iOS/Assets/Icon-76@2x.png");
+    resizeIconImage(29, 29, "iOS/Assets/Icon-Small.png");
+    resizeIconImage(58, 58, "iOS/Assets/Icon-Small@2x.png");
+    resizeIconImage(80, 80, "iOS/Assets/Icon-40@2x.png");
+    resizeIconImage(50, 50, "iOS/Assets/Icon-Small-50.png");
+    resizeIconImage(100, 100, "iOS/Assets/Icon-Small-50@2x.png");
+    resizeIconImage(40, 40, "iOS/Assets/Icon-40.png");
+    resizeIconImage(80, 80, "iOS/Assets/Icon-40@2x.png");
 
     console.log("Generating iTunes artwork");
 
-    resizeIconImage(1024, 1024, "iOS/Splash/iTunesArtwork@2x.png");
-    resizeIconImage(512, 512, "iOS/Splash/iTunesArtwork.png");
+    resizeIconImage(1024, 1024, "iOS/Assets/iTunesArtwork@2x.png");
+    resizeIconImage(512, 512, "iOS/Assets/iTunesArtwork.png");
 
     console.log("Generating Lock Screen Image");
 
-    resizeIconImage(652, 652, "iOS/Splash/lock-screen.png");
+    resizeIconImage(652, 652, "iOS/Assets/lock-screen.png");
 }
 
 function generateIOSAssets(splash, icons) {
