@@ -11,7 +11,7 @@
   "preferGlobal": "true",
   "bin": {
     "generate_assets" : "./generate.js"
-  }
+  },
   "devDependencies": {
     "inquirer": "^0.9.0",
     "mkdirp": "^0.5.1",
