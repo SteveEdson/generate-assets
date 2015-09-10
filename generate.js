@@ -98,14 +98,10 @@ function generateAndroidSplashAssets() {
     // Splash images
     resizeSplashImage(1024, 1024, 'Android/res/drawable-mdpi/splash.png');
     resizeSplashImage(1024, 1024, 'Android/res/drawable-hdpi/splash.png');
-    resizeSplashImage(512, 512, 'Android/res/drawable-ldpi/splash.png');
-
+    resizeSplashImage(512, 512,   'Android/res/drawable-ldpi/splash.png');
     resizeSplashImage(2048, 2048, 'Android/res/drawable-xhdpi/splash.png');
-
-    // Next two are not needed as they are the same, will fallback to the highest available res
-
-    //resizeSplashImage(2048, 2048, 'Android/res/drawable-xxhdpi/splash.png');
-    //resizeSplashImage(2048, 2048, 'Android/res/drawable-xxxhdpi/splash.png');
+    resizeSplashImage(2048, 2048, 'Android/res/drawable-xxhdpi/splash.png');
+    resizeSplashImage(2048, 2048, 'Android/res/drawable-xxxhdpi/splash.png');
 
     // Feature graphic for android
     resizeSplashImage(1024, 500, 'Android/feature_graphic.png');
