@@ -69,6 +69,8 @@ function resizeSplashImage(width, height, output) {
         .toFile(process.env.PWD + "/" + output, function (err) {
             if (err) console.dir(err);
 
+            fs.chmodSync(process.env.PWD + "/" + output, '755');
+
             incrementBar();
         });
 }
@@ -81,6 +83,8 @@ function resizeIconImage(width, height, output) {
         .withoutEnlargement()
         .toFile(process.env.PWD + "/" + output, function (err) {
             if (err) console.dir(err);
+
+            fs.chmodSync(process.env.PWD + "/" + output, '755');
 
             incrementBar();
         });
