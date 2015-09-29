@@ -12,7 +12,7 @@
   "license": "ISC",
   "preferGlobal": "true",
   "bin": {
-    "generate_assets": "./lib/generate.js"
+    "generate_assets": "./src/generate.js"
   },
   "dependencies": {
     "inquirer": "^0.10.1",
