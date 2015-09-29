@@ -4,18 +4,21 @@
   "description": "Generate iOS and Android assets",
   "main": "generate.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "VIPS_WARNING=0 node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --slow=5000 --timeout=20000 ./test/unit/*.js"
   },
   "author": "Steve Edson",
   "license": "ISC",
   "preferGlobal": "true",
   "bin": {
-    "generate_assets" : "./generate.js"
+    "generate_assets": "./generate.js"
   },
   "dependencies": {
     "inquirer": "^0.10.1",
     "mkdirp": "^0.5.1",
     "progress": "^1.1.8",
     "sharp": "^0.11.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
   }
 }
