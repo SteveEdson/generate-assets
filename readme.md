@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/SteveEdson/generate-assets.svg?branch=master)](https://travis-ci.org/SteveEdson/generate-assets)
+
 # Mobile App Image Generator
 
 To use, install and run `$ generate_assets` from a directory containing `splash_template.png` and `icon_template.png`. Assets will be created in *Android* and *iOS* folders. 
