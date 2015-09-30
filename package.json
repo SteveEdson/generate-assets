@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "mkdir -p lib && babel -d lib/ src/",
     "prepublish": "npm run compile",
-    "test": "VIPS_WARNING=0 node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --slow=5000 --timeout=20000 ./test/unit/*.js"
+    "test": "VIPS_WARNING=0 node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --slow=5000 --timeout=20000 ./test/unit/*.js",
     "coverage": "node_modules/coveralls/bin/coveralls.js < coverage/lcov.info",
   },
   "author": "Steve Edson",
