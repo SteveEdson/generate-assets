@@ -16,7 +16,6 @@ addons:
 before_install:
 - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
 - curl -s https://raw.githubusercontent.com/lovell/sharp/master/preinstall.sh | sudo bash
-- gem install coveralls
 deploy:
   provider: npm
   email: steve@steveedson.co.uk
@@ -26,4 +25,4 @@ deploy:
     tags: true
     repo: SteveEdson/generate-assets
 after_success:
-  - coveralls
+  - npm run coverage
