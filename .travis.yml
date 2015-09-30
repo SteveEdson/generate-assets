@@ -25,3 +25,5 @@ deploy:
   on:
     tags: true
     repo: SteveEdson/generate-assets
+after_success:
+  - coveralls
