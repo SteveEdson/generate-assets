@@ -15,9 +15,8 @@ addons:
     - g++-4.8
 before_install:
 - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
-- curl -s https://raw.githubusercontent.com/lovell/sharp/master/preinstall.sh | sudo
-  bash -
-install: gem install rails
+- curl -s https://raw.githubusercontent.com/lovell/sharp/master/preinstall.sh | sudo bash
+- gem install coveralls
 deploy:
   provider: npm
   email: steve@steveedson.co.uk
