@@ -1,7 +1,14 @@
 #! /usr/bin/env node
 
 var inquirer = require("inquirer"),
-    ImageAssets = require('./image-assets');
+    ImageAssets = require('./image-assets'),
+    updateNotifier = require('update-notifier'),
+    pkg = require('../package.json');
+
+updateNotifier({
+    pkg: pkg,
+    updateCheckInterval: 1000 * 60 * 60 * 24 * 7 // 1 week
+}).notify();
 
 var questions = [
     {
