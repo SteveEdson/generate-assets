@@ -1,9 +1,9 @@
 #! /usr/bin/env node
 
 var inquirer = require("inquirer"),
-    ImageAssets = require('./image-assets'),
-    updateNotifier = require('update-notifier'),
-    pkg = require('../package.json');
+    ImageAssets = require("./image-assets"),
+    updateNotifier = require("update-notifier"),
+    pkg = require("../package.json");
 
 updateNotifier({
     pkg: pkg,
@@ -34,7 +34,7 @@ var questions = [
         name: "generateIOSIcons",
         message: "Generate iOS Icon images",
         default: true
-    },
+    }
 ];
 
 inquirer.prompt(questions, function (answers) {
