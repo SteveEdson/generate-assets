@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/SteveEdson/generate-assets.svg?branch=master)](https://travis-ci.org/SteveEdson/generate-assets)
+[![Coverage 
+Status](https://coveralls.io/repos/SteveEdson/generate-assets/badge.svg?branch=master&service=github)](https://coveralls.io/github/SteveEdson/generate-assets?branch=master)
+
 # Mobile App Image Generator
 
 To use, install and run `$ generate_assets` from a directory containing `splash_template.png` and `icon_template.png`. Assets will be created in *Android* and *iOS* folders. 

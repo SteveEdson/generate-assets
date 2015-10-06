@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+- '4.1'
+- '4.0'
+- '0.12'
+- '0.11'
+- '0.10'
+- iojs
+sudo: 9000
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+before_install:
+- sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
+- curl -s https://raw.githubusercontent.com/lovell/sharp/master/preinstall.sh | sudo bash
+deploy:
+  provider: npm
+  email: steve@steveedson.co.uk
+  api_key:
+    secure: JhJ0EAtDJ6HfKwzbR68XmSbcWAr0o8qCzk/+mkcCRcK+eYUarLjLkV/DNvN179+fz1nvUbCq4pYgDhqKRt843FIqQbKB1uJrb7jENB8yfJTDE//j8qqNZ10p5Y8ayhWqV77vYw8bdR0hVUnssueRBg3VHzDkS9nvk1P+0tm4ALnP7/dfpDsQuFg+MjyhMrWTBjvU7ogOU89plWnKpCkdS9bZoFNq4eIbbO9AuLXqteO10Rvv+fxmcJtlzbq15JPIqqRfnGgn5dBevALMT4Qc/5FtZsi4b8rWquCsMCwmMkWN/xN4ZpuxcBAOkd2PdJfoXJlvDRcITKId5ctFTlVZUUsoG6wn9p1H1HJ3ySdme6Br9Is9KzaS8oImYzxN7dI4J+EZ0vUmUD+8KBqt3lQZZzXwYiM5DknRJWD58mxZVZhvSok4y/3SyZtR9WerjS8Wn4M8h/OGF1qdcNIM5Xr7sOdb48XCTDizL1CURbIR2pGztEjJql8r6OmaN0hF+mgyyix7L5tC7gFq1UTWi9FVktTtR/9TeqTZlhMhaSr0Eg093BW98+f95gG7YpPUeimiKUn9Iir0bmss0Enlu8f+XqMRzpl/cE8kRYP+jELpBkTeJoqkaw7Gec/1lM0q2SBWtAW7fT2yp5LmvA7E9h06sMd7nFfbA3MCBq3zq3JE1mI=
+  on:
+    tags: true
+    repo: SteveEdson/generate-assets
+after_success:
+  - npm run coverage
