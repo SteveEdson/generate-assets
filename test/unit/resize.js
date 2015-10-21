@@ -8,6 +8,14 @@ chai.use(require('chai-fs'));
 // TODO: Write more tests using chai FS and or node image-size (https://github.com/netroy/image-size)
 var baseDir = process.env.PWD;
 
+describe('Core', function() {
+  describe('Class funtions', function() {
+    it('should throw an error when used as a function', function() {
+      expect(ImageAssets).to.throw(TypeError);
+    });
+  });
+});
+
 describe('Resizing', function() {
     describe('iOS', function () {
         it('should create multiple resized assets from the template');
