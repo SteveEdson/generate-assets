@@ -18,12 +18,26 @@ describe('Resizing', function() {
 });
 
 describe('Setup', function() {
-    describe('Folders', function () {
-        it('should create the necessary directory structure', function() {
+    describe('iOS Folders', function () {
+        it('should create the necessary iOS directory structure', function() {
           // Create the folders
           ImageAssets.createIOSFolders();
 
           expect(baseDir + "/iOS/Assets").to.be.a.directory();
+        });
+    });
+
+    describe('Android Folders', function () {
+        it('should create the necessary Android directory structure', function() {
+          // Create the folders
+          ImageAssets.createAndroidFolders();
+
+          expect(baseDir + "/Android/res/drawable-ldpi").to.be.a.directory();
+          expect(baseDir + "/Android/res/drawable-mdpi").to.be.a.directory();
+          expect(baseDir + "/Android/res/drawable-hdpi").to.be.a.directory();
+          expect(baseDir + "/Android/res/drawable-xhdpi").to.be.a.directory();
+          expect(baseDir + "/Android/res/drawable-xxhdpi").to.be.a.directory();
+          expect(baseDir + "/Android/res/drawable-xxxhdpi").to.be.a.directory();
         });
     });
 });
