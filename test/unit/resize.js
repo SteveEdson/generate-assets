@@ -1,6 +1,7 @@
 var assert = require("assert"),
     ImageAssets = require('../../lib/image-assets'),
-    chai = require('chai');
+    chai = require('chai'),
+    expect = chai.expect;
 
 chai.use(require('chai-fs'));
 
