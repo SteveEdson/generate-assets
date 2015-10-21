@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "babel": "^5.8.23",
-    "chai": "^3.4.0",
+    "chai": "^2.3.0",
     "chai-fs": "^0.1.0",
     "coveralls": "^2.11.4",
     "cz-conventional-changelog": "^1.1.4",
