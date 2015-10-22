@@ -24,7 +24,7 @@ before_script:
   - npm prune
   - 'curl -Lo travis_after_all.py https://git.io/vLSON'
 after_failure:
-  - tree .
+  - tree . -L 4
 after_success:
   - npm run coverage
   - python travis_after_all.py
