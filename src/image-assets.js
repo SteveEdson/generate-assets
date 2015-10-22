@@ -21,7 +21,6 @@ export default class ImageAssets {
     }
 
     static resizeSplashImage(path, width, height, output) {
-        console.log("Converting " + output + " with " + width + " - " + height);
 
         return new Promise(function(resolve, reject) {
             sharp(path)
@@ -34,7 +33,7 @@ export default class ImageAssets {
 
                     fs.chmodSync(process.env.PWD + "/" + output, '755');
 
-                    ImageAssets.incrementBar();
+                    //ImageAssets.incrementBar();
 
                     resolve(process.env.PWD + "/" + output);
                 });
@@ -61,7 +60,6 @@ export default class ImageAssets {
     }
 
     static generateAndroidSplashAssets(path) {
-        console.log("Generating Android splash assets");
 
         var files = [
             {
@@ -101,7 +99,7 @@ export default class ImageAssets {
             }
         ];
 
-        ImageAssets.setBar(files.length);
+        //ImageAssets.setBar(files.length);
 
         var promises = [];
 
@@ -114,7 +112,6 @@ export default class ImageAssets {
     }
 
     static generateAndroidIconAssets(path) {
-        console.log("Generating Android icon assets");
 
         var files = [
             {
@@ -241,6 +238,7 @@ export default class ImageAssets {
 
         for(var i = 0; i < files.length; i++) {
             var file = files[i];
+
             promises.push(ImageAssets.resizeSplashImage(path, file.width, file.height, file.path));
         }
 
@@ -354,12 +352,12 @@ export default class ImageAssets {
     }
 
     static setBar(length) {
-        barLength = barLength + length;
+        //barLength = barLength + length;
 
-        bar = new ProgressBar(':bar', {total: barLength});
+        //bar = new ProgressBar(':bar', {total: barLength});
     }
 
     static incrementBar() {
-        if (bar != null) bar.tick();
+        //if (bar != null) bar.tick();
     }
 }
