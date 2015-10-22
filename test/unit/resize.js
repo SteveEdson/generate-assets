@@ -1,5 +1,6 @@
 var assert = require("assert"),
     ImageAssets = require('../../lib/image-assets'),
+    sizeOf = require('image-size'),
     chai = require('chai'),
     expect = chai.expect;
 
@@ -18,7 +19,33 @@ describe('Core', function() {
 
 describe('Resizing', function() {
     describe('iOS', function () {
-        it('should create multiple resized assets from the template');
+        it('should create multiple resized assets from the template', function() {
+
+            ImageAssets.createIOSFolders();
+            ImageAssets.generateIOSSplashAssets();
+
+            var files = [
+              {
+                "path": baseDir + "/iOS/Assets/Default~ipad.png",
+                "width": 768,
+                "height": 1004
+              },
+              {
+                "path": baseDir + "/iOS/Assets/Default@2x~ipad.png",
+                "width": 1536,
+                "height": 2008
+              }
+            ];
+
+            for(i = 0; i < files.length; i++) {
+                var file = files[i];
+                expect(file.path).to.be.a.file();
+
+                var dimensions = sizeOf(file.path);
+                expect(dimensions.width).to.equal(file.width);
+                expect(dimensions.height).to.equal(file.height);
+            }
+        });
     });
 
     describe('Android', function () {
