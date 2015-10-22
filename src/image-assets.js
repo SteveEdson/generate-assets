@@ -113,7 +113,7 @@ export default class ImageAssets {
         return promises;
     }
 
-    static generateAndroidIconAssets() {
+    static generateAndroidIconAssets(path) {
         console.log("Generating Android icon assets");
 
         var files = [
@@ -248,33 +248,100 @@ export default class ImageAssets {
     }
 
     static generateIOSIconAssets(path) {
-        ImageAssets.setBar(17);
 
-        console.log("Generating iPhone icon assets");
+        var files = [
+            {
+                path: "iOS/Assets/Icon.png",
+                width: 57,
+                height: 57
+            },
+            {
+                path: "iOS/Assets/Icon@2x.png",
+                width: 114,
+                height: 114
+            },
+            {
+                path: "iOS/Assets/Icon-120.png",
+                width: 120,
+                height: 120
+            },
+            {
+                path: "iOS/Assets/Icon-72.png",
+                width: 72,
+                height: 72
+            },
+            {
+                path: "iOS/Assets/Icon-72@2x.png",
+                width: 144,
+                height: 144
+            },
+            {
+                path: "iOS/Assets/Icon-76.png",
+                width: 76,
+                height: 76
+            },
+            {
+                path: "iOS/Assets/Icon-76@2x.png",
+                width: 152,
+                height: 152
+            },
+            {
+                path: "iOS/Assets/Icon-Small.png",
+                width: 29,
+                height: 29
+            },
+            {
+                path: "iOS/Assets/Icon-Small@2x.png",
+                width: 58,
+                height: 58
+            },
+            {
+                path: "iOS/Assets/Icon-40.png",
+                width: 40,
+                height: 40
+            },
+            {
+                path: "iOS/Assets/Icon-40@2x.png",
+                width: 80,
+                height: 80
+            },
+            {
+                path: "iOS/Assets/Icon-Small-50.png",
+                width: 50,
+                height: 50
+            },
+            {
+                path: "iOS/Assets/Icon-Small-50@2x.png",
+                width: 100,
+                height: 100
+            },
+            {
+                path: "iOS/Assets/iTunesArtwork@2x.png",
+                width: 1024,
+                height: 1024
+            },
+            {
+                path: "iOS/Assets/iTunesArtwork.png",
+                width: 512,
+                height: 512
+            },
+            {
+                path: "iOS/Assets/lock-screen.png",
+                width: 652,
+                height: 652
+            }
+        ];
 
-        ImageAssets.resizeIconImage(path, 57, 57, "iOS/Assets/Icon.png");
-        ImageAssets.resizeIconImage(path, 114, 114, "iOS/Assets/Icon@2x.png");
-        ImageAssets.resizeIconImage(path, 120, 120, "iOS/Assets/Icon-120.png");
-        ImageAssets.resizeIconImage(path, 72, 72, "iOS/Assets/Icon-72.png");
-        ImageAssets.resizeIconImage(path, 144, 144, "iOS/Assets/Icon-72@2x.png");
-        ImageAssets.resizeIconImage(path, 76, 76, "iOS/Assets/Icon-76.png");
-        ImageAssets.resizeIconImage(path, 152, 152, "iOS/Assets/Icon-76@2x.png");
-        ImageAssets.resizeIconImage(path, 29, 29, "iOS/Assets/Icon-Small.png");
-        ImageAssets.resizeIconImage(path, 58, 58, "iOS/Assets/Icon-Small@2x.png");
-        ImageAssets.resizeIconImage(path, 80, 80, "iOS/Assets/Icon-40@2x.png");
-        ImageAssets.resizeIconImage(path, 50, 50, "iOS/Assets/Icon-Small-50.png");
-        ImageAssets.resizeIconImage(path, 100, 100, "iOS/Assets/Icon-Small-50@2x.png");
-        ImageAssets.resizeIconImage(path, 40, 40, "iOS/Assets/Icon-40.png");
-        ImageAssets.resizeIconImage(path, 80, 80, "iOS/Assets/Icon-40@2x.png");
+        ImageAssets.setBar(files.length);
 
-        console.log("Generating iTunes artwork");
+        var promises = [];
 
-        ImageAssets.resizeIconImage(path, 1024, 1024, "iOS/Assets/iTunesArtwork@2x.png");
-        ImageAssets.resizeIconImage(path, 512, 512, "iOS/Assets/iTunesArtwork.png");
+        for(var i = 0; i < files.length; i++) {
+            var file = files[i];
+            promises.push(ImageAssets.resizeIconImage(path, file.width, file.height, file.path));
+        }
 
-        console.log("Generating Lock Screen Image");
-
-        ImageAssets.resizeIconImage(652, 652, "iOS/Assets/lock-screen.png");
+        return promises;
     }
 
     static generateIOSAssets(splash, splashPath, icons, iconsPath) {
