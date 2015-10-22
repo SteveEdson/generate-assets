@@ -93,7 +93,7 @@ describe('Resizing', function() {
               }
 
               done();
-            }, 20000);
+            }, 15000);
         });
     });
 
