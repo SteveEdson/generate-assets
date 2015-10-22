@@ -17,11 +17,11 @@ before(function() {
 });
 
 describe('Core', function() {
-  describe('Class funtions', function() {
-    it('should throw an error when used as a function', function() {
-      expect(ImageAssets).to.throw(TypeError);
+    describe('Class functions', function() {
+        it('should throw an error when used as a function', function() {
+            expect(ImageAssets).to.throw(TypeError);
+        });
     });
-  });
 });
 
 describe('Resizing', function() {
@@ -89,7 +89,6 @@ describe('Resizing', function() {
 
             ImageAssets.createIOSFolders();
             var promises = ImageAssets.generateIOSSplashAssets(__dirname + "/sample-splash-template.png");
-
 
             Promise.all(promises).then(function() {
 
