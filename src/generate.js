@@ -39,13 +39,17 @@ var questions = [
 
 inquirer.prompt(questions, function (answers) {
 
+    var splashPath = process.env.PWD + '/splash-template.png';
+    var iconPath = process.env.PWD + '/icon-template.png';
+
     if (answers.generateAndroidSplash || answers.generateAndroidIcons) {
         ImageAssets.createAndroidFolders();
-        ImageAssets.generateAndroidAssets(answers.generateAndroidSplash, answers.generateAndroidIcons);
+
+        ImageAssets.generateAndroidAssets(answers.generateAndroidSplash, splashPath, answers.generateAndroidIcons, iconPath);
     }
 
     if (answers.generateIOSSplash || answers.generateIOSIcons) {
         ImageAssets.createIOSFolders();
-        ImageAssets.generateIOSAssets(answers.generateIOSSplash, answers.generateIOSIcons);
+        ImageAssets.generateIOSAssets(answers.generateIOSSplash, splashPath, answers.generateIOSIcons, iconPath);
     }
 });

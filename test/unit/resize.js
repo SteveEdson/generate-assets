@@ -22,7 +22,7 @@ describe('Resizing', function() {
         it('should create multiple resized assets from the template', function() {
 
             ImageAssets.createIOSFolders();
-            ImageAssets.generateIOSSplashAssets();
+            ImageAssets.generateIOSSplashAssets("./sample-splash-template.png");
 
             var files = [
               {
