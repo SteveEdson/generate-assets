@@ -116,15 +116,54 @@ export default class ImageAssets {
     static generateAndroidIconAssets() {
         console.log("Generating Android icon assets");
 
-        ImageAssets.setBar(7);
+        var files = [
+            {
+                path: "Android/res/drawable-ldpi/ic_launcher.png",
+                width: 36,
+                height: 36
+            },
+            {
+                path: "Android/res/drawable-mdpi/ic_launcher.png",
+                width: 48,
+                height: 48
+            },
+            {
+                path: "Android/res/drawable-hdpi/ic_launcher.png",
+                width: 72,
+                height: 72
+            },
+            {
+                path: "Android/res/drawable-xhdpi/ic_launcher.png",
+                width: 96,
+                height: 96
+            },
+            {
+                path: "Android/res/drawable-xxhdpi/ic_launcher.png",
+                width: 144,
+                height: 144
+            },
+            {
+                path: "Android/res/drawable-xxxhdpi/ic_launcher.png",
+                width: 192,
+                height: 192
+            },
+            {
+                path: "Android/web_icon.png",
+                width: 512,
+                height: 512
+            },
+        ];
 
-        ImageAssets.resizeIconImage(path, 36, 36, "Android/res/drawable-ldpi/ic_launcher.png");
-        ImageAssets.resizeIconImage(path, 48, 48, "Android/res/drawable-mdpi/ic_launcher.png");
-        ImageAssets.resizeIconImage(path, 72, 72, "Android/res/drawable-hdpi/ic_launcher.png");
-        ImageAssets.resizeIconImage(path, 96, 96, "Android/res/drawable-xhdpi/ic_launcher.png");
-        ImageAssets.resizeIconImage(path, 144, 144, "Android/res/drawable-xxhdpi/ic_launcher.png");
-        ImageAssets.resizeIconImage(path, 192, 192, "Android/res/drawable-xxxhdpi/ic_launcher.png");
-        ImageAssets.resizeIconImage(path, 512, 512, "Android/web_icon.png");
+        ImageAssets.setBar(files.length);
+
+        var promises = [];
+
+        for(var i = 0; i < files.length; i++) {
+            var file = files[i];
+            promises.push(ImageAssets.resizeIconImage(path, file.width, file.height, file.path));
+        }
+
+        return promises;
     }
 
     static generateAndroidAssets(splash, splashPath, icons, iconsPath) {
@@ -206,9 +245,6 @@ export default class ImageAssets {
         }
 
         return promises;
-
-
-        // console.log("Generating iPhone splash assets");
     }
 
     static generateIOSIconAssets(path) {
