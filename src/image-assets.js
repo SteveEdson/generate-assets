@@ -63,18 +63,54 @@ export default class ImageAssets {
     static generateAndroidSplashAssets(path) {
         console.log("Generating Android splash assets");
 
-        ImageAssets.setBar(5);
+        var files = [
+            {
+                path: "Android/res/drawable-mdpi/splash.png",
+                width: 1024,
+                height: 1024
+            },
+            {
+                path: "Android/res/drawable-hdpi/splash.png",
+                width: 1024,
+                height: 1024
+            },
+            {
+                path: "Android/res/drawable-ldpi/splash.png",
+                width: 512,
+                height: 512
+            },
+            {
+                path: "Android/res/drawable-xhdpi/splash.png",
+                width: 2048,
+                height: 2048
+            },
+            {
+                path: "Android/res/drawable-xxhdpi/splash.png",
+                width: 2048,
+                height: 2048
+            },
+            {
+                path: "Android/res/drawable-xxxhdpi/splash.png",
+                width: 2048,
+                height: 2048
+            },
+            {
+                path: "Android/feature_graphic.png",
+                width: 1024,
+                height: 500
+            }
+        ];
 
-        // Splash images
-        ImageAssets.resizeSplashImage(path, 1024, 1024, 'Android/res/drawable-mdpi/splash.png');
-        ImageAssets.resizeSplashImage(path, 1024, 1024, 'Android/res/drawable-hdpi/splash.png');
-        ImageAssets.resizeSplashImage(path, 512, 512,   'Android/res/drawable-ldpi/splash.png');
-        ImageAssets.resizeSplashImage(path, 2048, 2048, 'Android/res/drawable-xhdpi/splash.png');
-        ImageAssets.resizeSplashImage(path, 2048, 2048, 'Android/res/drawable-xxhdpi/splash.png');
-        ImageAssets.resizeSplashImage(path, 2048, 2048, 'Android/res/drawable-xxxhdpi/splash.png');
+        ImageAssets.setBar(files.length);
 
-        // Feature graphic for android
-        ImageAssets.resizeSplashImage(path, 1024, 500, 'Android/feature_graphic.png');
+        var promises = [];
+
+        for(var i = 0; i < files.length; i++) {
+            var file = files[i];
+            promises.push(ImageAssets.resizeSplashImage(path, file.width, file.height, file.path));
+        }
+
+        return promises;
     }
 
     static generateAndroidIconAssets() {
@@ -100,13 +136,9 @@ export default class ImageAssets {
     }
 
     static generateIOSSplashAssets(path) {
-        ImageAssets.setBar(11);
-
         console.log("Generating iPad splash assets");
 
-        var promises = [];
-
-        var paths = [
+        var files = [
             {
                 path: "iOS/Assets/Default~ipad.png",
                 width: 768,
@@ -164,8 +196,12 @@ export default class ImageAssets {
             }
         ];
 
-        for(var i = 0; i < paths.length; i++) {
-            var file = paths[i];
+        ImageAssets.setBar(files.length);
+
+        var promises = [];
+
+        for(var i = 0; i < files.length; i++) {
+            var file = files[i];
             promises.push(ImageAssets.resizeSplashImage(path, file.width, file.height, file.path));
         }
 
