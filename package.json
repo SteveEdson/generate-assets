@@ -5,7 +5,7 @@
   "scripts": {
     "compile": "mkdir -p lib && babel -d lib/ src/",
     "prepublish": "npm run compile",
-    "test": "VIPS_WARNING=0 node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --slow=5000 --timeout=20000 ./test/unit/*.js",
+    "test": "VIPS_WARNING=0 node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --slow=5000 --timeout=20000 ./test/unit/*.js --reporter=nyan",
     "coverage": "node_modules/coveralls/bin/coveralls.js < coverage/lcov.info",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -31,6 +31,7 @@
     "image-size": "^0.3.5",
     "istanbul": "^0.4.0",
     "mocha": "^2.3.3",
+    "rimraf": "^2.4.3",
     "semantic-release": "^4.3.5"
   },
   "repository": {

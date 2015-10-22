@@ -1,6 +1,7 @@
 var assert = require("assert"),
     ImageAssets = require('../../lib/image-assets'),
     sizeOf = require('image-size'),
+    rimraf = require('rimraf'),
     chai = require('chai'),
     expect = chai.expect;
 
@@ -8,6 +9,12 @@ chai.use(require('chai-fs'));
 
 // TODO: Write more tests using chai FS and or node image-size (https://github.com/netroy/image-size)
 var baseDir = process.env.PWD;
+
+// Delete folders before running
+before(function() {
+    rimraf.sync(baseDir + "/iOS/");
+    rimraf.sync(baseDir + "/Android/");
+});
 
 describe('Core', function() {
   describe('Class funtions', function() {
