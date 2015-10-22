@@ -19,7 +19,7 @@ describe('Core', function() {
 
 describe('Resizing', function() {
     describe('iOS', function () {
-        it('should create multiple resized assets from the template', function() {
+        it('should create multiple resized assets from the template', function(done) {
 
             ImageAssets.createIOSFolders();
             ImageAssets.generateIOSSplashAssets(__dirname + "/sample-splash-template.png");
@@ -82,14 +82,18 @@ describe('Resizing', function() {
               }
             ];
 
-            for(i = 0; i < files.length; i++) {
-                var file = files[i];
-                expect(file.path).to.be.a.file();
+            setTimeout(function() {
+              for(i = 0; i < files.length; i++) {
+                  var file = files[i];
+                  expect(file.path).to.be.a.file();
 
-                var dimensions = sizeOf(file.path);
-                expect(dimensions.width).to.equal(file.width);
-                expect(dimensions.height).to.equal(file.height);
-            }
+                  var dimensions = sizeOf(file.path);
+                  expect(dimensions.width).to.equal(file.width);
+                  expect(dimensions.height).to.equal(file.height);
+              }
+
+              done();
+            }, 20000);
         });
     });
 
