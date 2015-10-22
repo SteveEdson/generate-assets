@@ -22,7 +22,7 @@ describe('Resizing', function() {
         it('should create multiple resized assets from the template', function() {
 
             ImageAssets.createIOSFolders();
-            ImageAssets.generateIOSSplashAssets("./sample-splash-template.png");
+            ImageAssets.generateIOSSplashAssets(__dirname + "/sample-splash-template.png");
 
             var files = [
               {
@@ -34,6 +34,51 @@ describe('Resizing', function() {
                 "path": baseDir + "/iOS/Assets/Default@2x~ipad.png",
                 "width": 1536,
                 "height": 2008
+              },
+              {
+                "path": baseDir + "/iOS/Assets/Default-Landscape~ipad.png",
+                "width": 1024,
+                "height": 748
+              },
+              {
+                "path": baseDir + "/iOS/Assets/Default-Landscape@2x~ipad.png",
+                "width": 2048,
+                "height": 1496
+              },
+              {
+                "path": baseDir + "/iOS/Assets/Default-Portrait~ipad.png",
+                "width": 768,
+                "height": 1024
+              },
+              {
+                "path": baseDir + "/iOS/Assets/Default-Portrait@2x~ipad.png",
+                "width": 1536,
+                "height": 2048
+              },
+              {
+                "path": baseDir + "/iOS/Assets/Default-Landscape-768~ipad.png",
+                "width": 1024,
+                "height": 768
+              },
+              {
+                "path": baseDir + "/iOS/Assets/Default-Landscape-768@2x~ipad.png",
+                "width": 2048,
+                "height": 1536
+              },
+              {
+                "path": baseDir + "/iOS/Assets/Default.png",
+                "width": 320,
+                "height": 480
+              },
+              {
+                "path": baseDir + "/iOS/Assets/Default@2x.png",
+                "width": 640,
+                "height": 960
+              },
+              {
+                "path": baseDir + "/iOS/Assets/Default-568h@2x.png",
+                "width": 640,
+                "height": 1136
               }
             ];
 
