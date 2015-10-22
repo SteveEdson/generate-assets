@@ -96,7 +96,7 @@ describe('Resizing', function() {
                 }
 
                 done();
-                
+
             }, function(value) {
                 console.log("Something else " + value);
             });
