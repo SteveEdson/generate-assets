@@ -18,6 +18,7 @@ before_install:
   - curl -s https://raw.githubusercontent.com/lovell/sharp/master/preinstall.sh | sudo bash
   - npm i -g npm@^2.0.0
   - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
+  - sudo apt-get update
   - sudo apt-get install tree
 before_script:
   - npm prune
