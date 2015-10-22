@@ -21,9 +21,6 @@ describe('Resizing', function() {
     describe('iOS', function () {
         it('should create multiple resized assets from the template', function(done) {
 
-            ImageAssets.createIOSFolders();
-            ImageAssets.generateIOSSplashAssets(__dirname + "/sample-splash-template.png");
-
             var files = [
               {
                 "path": baseDir + "/iOS/Assets/Default~ipad.png",
@@ -82,18 +79,27 @@ describe('Resizing', function() {
               }
             ];
 
-            setTimeout(function() {
-              for(i = 0; i < files.length; i++) {
-                  var file = files[i];
-                  expect(file.path).to.be.a.file();
 
-                  var dimensions = sizeOf(file.path);
-                  expect(dimensions.width).to.equal(file.width);
-                  expect(dimensions.height).to.equal(file.height);
-              }
+            ImageAssets.createIOSFolders();
+            var promises = ImageAssets.generateIOSSplashAssets(__dirname + "/sample-splash-template.png");
 
-              done();
-            }, 15000);
+
+            Promise.all(promises).then(function() {
+
+                for(i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    expect(file.path).to.be.a.file();
+
+                    var dimensions = sizeOf(file.path);
+                    expect(dimensions.width).to.equal(file.width);
+                    expect(dimensions.height).to.equal(file.height);
+                }
+
+                done();
+                
+            }, function(value) {
+                console.log("Something else " + value);
+            });
         });
     });
 

@@ -2,6 +2,7 @@ var sharp = require('sharp'),
     ProgressBar = require('progress'),
     mkdirp = require('mkdirp'),
     fs = require('fs'),
+    polyfill = require("babel/polyfill"),
     bar = null,
     barLength = 0;
 
@@ -20,33 +21,43 @@ export default class ImageAssets {
     }
 
     static resizeSplashImage(path, width, height, output) {
-        sharp(path)
-            .resize(width, height)
-            .max()
-            .crop('center')
-            .withoutEnlargement()
-            .toFile(process.env.PWD + "/" + output, function (err) {
-                if (err) console.dir(err);
+        console.log("Converting " + output + " with " + width + " - " + height);
 
-                fs.chmodSync(process.env.PWD + "/" + output, '755');
+        return new Promise(function(resolve, reject) {
+            sharp(path)
+                .resize(width, height)
+                .max()
+                .crop('center')
+                .withoutEnlargement()
+                .toFile(process.env.PWD + "/" + output, function (err) {
+                    if (err) reject(err);
 
-                ImageAssets.incrementBar();
-            });
+                    fs.chmodSync(process.env.PWD + "/" + output, '755');
+
+                    ImageAssets.incrementBar();
+
+                    resolve(process.env.PWD + "/" + output);
+                });
+        });
     }
 
     static resizeIconImage(path, width, height, output) {
-        sharp(path)
-            .resize(width, height)
-            .max()
-            .crop('center')
-            .withoutEnlargement()
-            .toFile(process.env.PWD + "/" + output, function (err) {
-                if (err) console.dir(err);
+        return new Promise(function(resolve, reject) {
+            sharp(path)
+                .resize(width, height)
+                .max()
+                .crop('center')
+                .withoutEnlargement()
+                .toFile(process.env.PWD + "/" + output, function (err) {
+                    if (err) reject(err);
 
-                fs.chmodSync(process.env.PWD + "/" + output, '755');
+                    fs.chmodSync(process.env.PWD + "/" + output, '755');
 
-                ImageAssets.incrementBar();
-            });
+                    ImageAssets.incrementBar();
+
+                    resolve(process.env.PWD + "/" + output);
+                });
+        });
     }
 
     static generateAndroidSplashAssets(path) {
@@ -93,23 +104,78 @@ export default class ImageAssets {
 
         console.log("Generating iPad splash assets");
 
-        ImageAssets.resizeSplashImage(path, 768, 1004, "iOS/Assets/Default~ipad.png");
-        ImageAssets.resizeSplashImage(path, 1536, 2008, "iOS/Assets/Default@2x~ipad.png");
-        ImageAssets.resizeSplashImage(path, 1024, 748, "iOS/Assets/Default-Landscape~ipad.png");
-        ImageAssets.resizeSplashImage(path, 2048, 1496, "iOS/Assets/Default-Landscape@2x~ipad.png");
-        ImageAssets.resizeSplashImage(path, 768, 1024, "iOS/Assets/Default-Portrait~ipad.png");
-        ImageAssets.resizeSplashImage(path, 1536, 2048, "iOS/Assets/Default-Portrait@2x~ipad.png");
-        ImageAssets.resizeSplashImage(path, 1024, 768, "iOS/Assets/Default-Landscape-768~ipad.png");
-        ImageAssets.resizeSplashImage(path, 2048, 1536, "iOS/Assets/Default-Landscape-768@2x~ipad.png");
+        var promises = [];
 
-        console.log("Generating iPhone splash assets");
+        var paths = [
+            {
+                path: "iOS/Assets/Default~ipad.png",
+                width: 768,
+                height: 1004
+            },
+            {
+                path: "iOS/Assets/Default@2x~ipad.png",
+                width: 1536,
+                height: 2008
+            },
+            {
+                path: "iOS/Assets/Default-Landscape~ipad.png",
+                width: 1024,
+                height: 748
+            },
+            {
+                path: "iOS/Assets/Default-Landscape@2x~ipad.png",
+                width: 2048,
+                height: 1496
+            },
+            {
+                path: "iOS/Assets/Default-Portrait~ipad.png",
+                width: 768,
+                height: 1024
+            },
+            {
+                path: "iOS/Assets/Default-Portrait@2x~ipad.png",
+                width: 1536,
+                height: 2048
+            },
+            {
+                path: "iOS/Assets/Default-Landscape-768~ipad.png",
+                width: 1024,
+                height: 768
+            },
+            {
+                path: "iOS/Assets/Default-Landscape-768@2x~ipad.png",
+                width: 2048,
+                height: 1536
+            },
+            {
+                path: "iOS/Assets/Default.png",
+                width: 320,
+                height: 480
+            },
+            {
+                path: "iOS/Assets/Default@2x.png",
+                width: 640,
+                height: 960
+            },
+            {
+                path: "iOS/Assets/Default-568h@2x.png",
+                width: 640,
+                height: 1136
+            }
+        ];
 
-        ImageAssets.resizeSplashImage(path, 320, 480, "iOS/Assets/Default.png");
-        ImageAssets.resizeSplashImage(path, 640, 960, "iOS/Assets/Default@2x.png");
-        ImageAssets.resizeSplashImage(path, 640, 1136, "iOS/Assets/Default-568h@2x.png");
+        for(var i = 0; i < paths.length; i++) {
+            var file = paths[i];
+            promises.push(ImageAssets.resizeSplashImage(path, file.width, file.height, file.path));
+        }
+
+        return promises;
+
+
+        // console.log("Generating iPhone splash assets");
     }
 
-    static generateIOSIconAssets() {
+    static generateIOSIconAssets(path) {
         ImageAssets.setBar(17);
 
         console.log("Generating iPhone icon assets");
