@@ -172,7 +172,6 @@ export default class ImageAssets {
     }
 
     static generateIOSSplashAssets(path) {
-        console.log("Generating iPad splash assets");
 
         var files = [
             {
