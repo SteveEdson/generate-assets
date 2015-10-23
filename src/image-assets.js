@@ -2,7 +2,7 @@ var sharp = require('sharp'),
     ProgressBar = require('progress'),
     mkdirp = require('mkdirp'),
     fs = require('fs'),
-    //polyfill = require("babel/polyfill"),
+    polyfill = require("babel/polyfill"),
     bar = null,
     barLength = 0;
 
