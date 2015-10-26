@@ -1,7 +1,7 @@
 {
   "name": "image-assets",
   "description": "Generate iOS and Android assets",
-  "main": "generate.js",
+  "main": "lib/image-assets.js",
   "scripts": {
     "compile": "mkdir -p lib && babel -d lib/ src/",
     "prepublish": "npm run compile",
