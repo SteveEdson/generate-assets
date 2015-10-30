@@ -2,7 +2,7 @@ var sharp = require('sharp'),
     ProgressBar = require('progress'),
     mkdirp = require('mkdirp'),
     fs = require('fs'),
-    polyfill = require("babel/polyfill"),
+    polyfill = require("babel-polyfill"),
     bar = null,
     barLength = 0;
 
@@ -30,7 +30,7 @@ export default class ImageAssets {
                 .withoutEnlargement()
                 .toFile(process.env.PWD + "/" + output, function (err) {
                     if (err) reject(err);
-
+                    
                     fs.chmodSync(process.env.PWD + "/" + output, '755');
 
                     //ImageAssets.incrementBar();
