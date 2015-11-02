@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/SteveEdson/generate-assets.svg?branch=master)](https://travis-ci.org/SteveEdson/generate-assets)
 [![Coverage
 Status](https://coveralls.io/repos/SteveEdson/generate-assets/badge.svg?branch=master&service=github)](https://coveralls.io/github/SteveEdson/generate-assets?branch=master)
+[![Code Climate](https://codeclimate.com/github/SteveEdson/generate-assets/badges/gpa.svg)](https://codeclimate.com/github/SteveEdson/generate-assets)
 
 # Mobile App Image Generator
 
