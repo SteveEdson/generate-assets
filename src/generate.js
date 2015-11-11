@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 var inquirer = require("inquirer"),
-    ImageAssets = require("./image-assets"),
+    ImageAssets = require("./image-assets").default,
     updateNotifier = require("update-notifier"),
     pkg = require("../package.json");
 
