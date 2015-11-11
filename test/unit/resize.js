@@ -1,5 +1,5 @@
 var assert = require("assert"),
-    ImageAssets = require('../../lib/image-assets'),
+    ImageAssets = require('../../lib/image-assets').default,
     sizeOf = require('image-size'),
     rimraf = require('rimraf'),
     chai = require('chai'),
