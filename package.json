@@ -23,7 +23,7 @@
     "update-notifier": "^0.5.0"
   },
   "devDependencies": {
-    "babel": "^6.0.15",
+    "babel": "^6.1.5",
     "babel-cli": "^6.1.4",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.1.4",
     "babel-polyfill": "^6.1.4",
