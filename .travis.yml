@@ -18,9 +18,14 @@ before_install:
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
   - curl -s https://raw.githubusercontent.com/lovell/sharp/master/preinstall.sh | sudo bash
   - npm i -g npm@^2.0.0
-  - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
   - sudo apt-get update
   - sudo apt-get install tree
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
 before_script:
   - npm prune
   - 'curl -Lo travis_after_all.py https://git.io/vLSON'
