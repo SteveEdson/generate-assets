@@ -2,6 +2,7 @@ var sharp = require('sharp'),
     ProgressBar = require('progress'),
     mkdirp = require('mkdirp'),
     fs = require('fs'),
+    Promise = require("bluebird"),
     bar = null,
     barLength = 0;
 
