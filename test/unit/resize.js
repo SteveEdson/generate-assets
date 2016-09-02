@@ -3,6 +3,7 @@ var assert = require("assert"),
     sizeOf = require('image-size'),
     rimraf = require('rimraf'),
     chai = require('chai'),
+    Promise = require("bluebird"),
     expect = chai.expect;
 
 chai.use(require('chai-fs'));
