@@ -20,7 +20,7 @@
     "inquirer": "^2.0.0",
     "mkdirp": "^0.5.1",
     "progress": "^1.1.8",
-    "update-notifier": "^1.0.0",
+    "update-notifier": "^2.1.0",
     "bluebird": "3.4.7"
   },
   "devDependencies": {
