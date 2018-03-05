@@ -1,6 +1,5 @@
 #! /usr/bin/env node
-
-var inquirer = require("inquirer"),
+const inquirer = require("inquirer"),
     ImageAssets = require("./image-assets").default,
     updateNotifier = require("update-notifier"),
     pkg = require("../package.json");
@@ -10,7 +9,7 @@ updateNotifier({
     updateCheckInterval: 1000 * 60 * 60 * 24 * 7 // 1 week
 }).notify();
 
-var questions = [
+const questions = [
     {
         type: "confirm",
         name: "generateAndroidSplash",
