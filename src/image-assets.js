@@ -293,6 +293,11 @@ export default class ImageAssets {
                 height: 58
             },
             {
+                path: "iOS/Assets/Icon-Small@3x.png",
+                width: 87,
+                height: 87
+            },
+            {
                 path: "iOS/Assets/Icon-40.png",
                 width: 40,
                 height: 40
@@ -301,6 +306,31 @@ export default class ImageAssets {
                 path: "iOS/Assets/Icon-40@2x.png",
                 width: 80,
                 height: 80
+            },
+            {
+                path: "iOS/Assets/Icon-50.png",
+                width: 50,
+                height: 50
+            },
+            {
+                path: "iOS/Assets/Icon-50@2x.png",
+                width: 100,
+                height: 100
+            },
+            {
+                path: "iOS/Assets/Icon-60.png",
+                width: 60,
+                height: 60
+            },
+            {
+                path: "iOS/Assets/Icon-60@2x.png",
+                width: 120,
+                height: 120
+            },
+            {
+                path: "iOS/Assets/Icon-60@3x.png",
+                width: 180,
+                height: 180
             },
             {
                 path: "iOS/Assets/Icon-Small-50.png",
@@ -326,7 +356,8 @@ export default class ImageAssets {
                 path: "iOS/Assets/lock-screen.png",
                 width: 652,
                 height: 652
-            }
+            },
+
         ];
 
         ImageAssets.setBar(files.length);
