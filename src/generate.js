@@ -36,7 +36,9 @@ const questions = [
     }
 ];
 
-inquirer.prompt(questions, function (answers) {
+inquirer.prompt(questions).then(function (answers) {
+
+    console.log('answers', answers);
 
     var splashPath = process.env.PWD + '/splash-template.png';
     var iconPath = process.env.PWD + '/icon-template.png';
