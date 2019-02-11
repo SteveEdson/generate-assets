@@ -30,7 +30,7 @@ export default class ImageAssets {
                 .withoutEnlargement()
                 .toFile(process.env.PWD + "/" + output, function (err) {
                     if (err) reject(err);
-                    
+
                     fs.chmodSync(process.env.PWD + "/" + output, '755');
 
                     //ImageAssets.incrementBar();
@@ -205,6 +205,11 @@ export default class ImageAssets {
                 height: 2048
             },
             {
+                path: "iOS/Assets/Default@2x~universal~anyany.png",
+                width: 2048,
+                height: 2048
+            },
+            {
                 path: "iOS/Assets/Default-Landscape-768~ipad.png",
                 width: 1024,
                 height: 768
@@ -281,6 +286,11 @@ export default class ImageAssets {
                 path: "iOS/Assets/Icon-76@2x.png",
                 width: 152,
                 height: 152
+            },
+            {
+                path: "iOS/Assets/Icon-83.5@2x.png",
+                width: 167,
+                height: 167
             },
             {
                 path: "iOS/Assets/Icon-Small.png",
