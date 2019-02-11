@@ -6,3 +6,6 @@ npm-debug.log
 Android/
 iOS/
 coverage/
+
+.DS_Store
+package-lock.json
